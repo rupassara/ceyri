@@ -1,0 +1,83 @@
+/* ═══════════════════════════════════════════════════════════
+   ANIMATIONS.CSS — Keyframes & Scroll-Reveal Utilities
+════════════════════════════════════════════════════════════ */
+
+/* WhatsApp pulse ring */
+@keyframes waPulse {
+  0%   { transform: scale(1);   opacity: .65; }
+  100% { transform: scale(1.85); opacity: 0;   }
+}
+
+/* Generic fade-up */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* Generic fade */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Hero text entry */
+@keyframes heroEnter {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* Scroll indicator line pulse */
+@keyframes scrollPulse {
+  0%, 100% { transform: scaleY(1);   opacity: .9; }
+  50%       { transform: scaleY(.45); opacity: .3; }
+}
+
+/* Counter shimmer (background placeholder) */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+/* ── Scroll-reveal classes ─────────────────────────────── */
+/* Applied to elements; .visible class added by IntersectionObserver */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity .7s cubic-bezier(.4,0,.2,1),
+              transform .7s cubic-bezier(.4,0,.2,1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity .75s cubic-bezier(.4,0,.2,1),
+              transform .75s cubic-bezier(.4,0,.2,1);
+}
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity .75s cubic-bezier(.4,0,.2,1),
+              transform .75s cubic-bezier(.4,0,.2,1);
+}
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Stagger delays for grid children */
+.products-grid .product-card:nth-child(1) { transition-delay: 0ms;   }
+.products-grid .product-card:nth-child(2) { transition-delay: 90ms;  }
+.products-grid .product-card:nth-child(3) { transition-delay: 180ms; }
+.products-grid .product-card:nth-child(4) { transition-delay: 270ms; }
+.products-grid .product-card:nth-child(5) { transition-delay: 360ms; }
+.products-grid .product-card:nth-child(6) { transition-delay: 450ms; }
